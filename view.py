@@ -10,7 +10,7 @@ def main():
     st.title('Cadastro de Itens')
 
     with st.form('form_item'):
-        descricao = st.text_input('Descrição do Item')
+        descricao = st.text_input('Nome do Item')
         quantidade = st.number_input('Quantidade', min_value=1, step=1)
         submitted = st.form_submit_button('Adicionar Item')
 
@@ -24,7 +24,7 @@ def main():
     st.subheader('Itens Cadastrados')
     itens = controller.obterTodosOsItens()
     for item in itens:
-        st.write(f'ID: {item.id} | Descrição: {item.descricao} | Quantidade: {item.quantidade}')
+        st.write(f'ID: {item.id} | Nome do Item: {item.descricao} | Quantidade: {item.quantidade}')
 
 if __name__ == '__main__':
     main()
