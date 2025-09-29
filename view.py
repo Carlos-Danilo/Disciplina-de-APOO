@@ -1,6 +1,6 @@
 import streamlit as st
-from controller.ItemController import ItemController
-from dao.ItemDAO import ItemDAO
+from controller import ItemController
+from dao import ItemDAO
 
 def main():
     dao = ItemDAO()
@@ -18,7 +18,7 @@ def main():
                 controller.criarItem(descricao, quantidade)
                 st.success('Item adicionado com sucesso!')
             else:
-                st.error('A descrição é obrigatória!')
+                st.error('O nome do item é obrigatório!')
 
     st.subheader('Itens Cadastrados')
     itens = controller.obterTodosOsItens()
