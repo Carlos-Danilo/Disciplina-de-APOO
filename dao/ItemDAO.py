@@ -1,10 +1,10 @@
 import sqlite3
 from typing import List
-from model import Item  
+from model.Item import Item  
 
 class ItemDAO:
     def __init__(self, db_name='itens.db'):
-        self.conn = sqlite3.connect(db_name)
+        self.conn = sqlite3.connect(db_name, check_same_thread=False)
         self._criar_tabela()
 
     def _criar_tabela(self):
@@ -21,6 +21,7 @@ class ItemDAO:
     def adicionar(self, item: Item):
         cursor = self.conn.cursor()
         cursor.execute('INSERT INTO itens (descricao, quantidade) VALUES (?, ?)', (item.descricao, item.quantidade))
+        self.conn.commit()
 
     def listarTodos(self) -> List[Item]:
         cursor = self.conn.cursor()

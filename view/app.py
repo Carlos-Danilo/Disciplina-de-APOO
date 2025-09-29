@@ -1,7 +1,6 @@
 import streamlit as st
-from dao import ItemDAO
-from controller import ItemController
-
+from controller.ItemController import ItemController
+from dao.ItemDAO import ItemDAO
 
 def main():
     dao = ItemDAO()

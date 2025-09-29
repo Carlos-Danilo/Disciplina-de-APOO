@@ -1,5 +1,5 @@
-from dao import ItemDAO
-from model import Item
+from dao.ItemDAO import ItemDAO
+from model.Item import Item
 from typing import List
 
 class ItemController:
@@ -7,8 +7,8 @@ class ItemController:
         self.dao = dao
 
     def criarItem(self, descricao: str, quantidade: int):
-        novo_item = Item(id=None, descricao=descricao, quantidade=quantidade)
-        self.dao.adicionar(novo_item)
+        item = Item(id=None, descricao=descricao, quantidade=quantidade)
+        self.dao.adicionar(item)
 
     def obterTodosOsItens(self) -> List[Item]:
         return self.dao.listarTodos()
