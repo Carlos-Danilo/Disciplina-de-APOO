@@ -21,7 +21,6 @@ class ItemDAO:
     def adicionar(self, item: Item):
         cursor = self.conn.cursor()
         cursor.execute('INSERT INTO itens (descricao, quantidade) VALUES (?, ?)', (item.descricao, item.quantidade))
-        self.conn.commit()
 
     def listarTodos(self) -> List[Item]:
         cursor = self.conn.cursor()
